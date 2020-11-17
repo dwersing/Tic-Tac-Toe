@@ -13,9 +13,9 @@ def display_board(board):
 
 def player_name():
     name1 = input('Player 1, Enter your name: ')
-    print(name1 + ' הצלחה')
+    print('Good Luck ' + name1)
     name2 = input('Player 2, Enter your name: ')
-    print(name2 + ' הצלחה')
+    print('Good Luck ' + name2)
 
     return name1, name2
 
@@ -37,7 +37,7 @@ def renamed_function(board, marker, position):
     board[position] = marker
 
 
-def check_winner(board,mark):
+def check_winner(board, mark):
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or
             (board[4] == mark and board[5] == mark and board[6] == mark) or
             (board[1] == mark and board[2] == mark and board[3] == mark) or
@@ -49,18 +49,18 @@ def check_winner(board,mark):
 
 
 def first_move():
-    if random.randint(0,1) == 0:
+    if random.randint(0, 1) == 0:
         return 'Player 1'
     else:
         return 'Player 2'
 
 
-def position_open(board,position):
+def position_open(board, position):
     return board[position] == ' '
 
 
 def position_not_open(board):
-    for i in range(1,10):
+    for i in range(1, 10):
         if position_open(board, i):
             return False
     return True
@@ -68,7 +68,7 @@ def position_not_open(board):
 
 def player_next_move(board):
     position = 0
-    while position not in [1,2,3,4,5,6,7,8,9] or not position_open(board,position):
+    while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or not position_open(board, position):
         position = int(input('Please enter your next move (1-9) '))
     return position
 
